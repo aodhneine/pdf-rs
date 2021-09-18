@@ -101,12 +101,12 @@ impl Document {
 		writer.write(b"4 0 obj\n")?;
 		writer.write(b"<<\n")?;
 		// TODO: How can we get that length programatically?
-		writer.write(b"/Length 38\n")?;
+		writer.write(b"/Length 39\n")?;
 		writer.write(b">>\n")?;
 		writer.write(b"stream\n")?;
 		writer.write(b"BT\n")?;
 		writer.write(b"/F13 10 Tf\n")?;
-		writer.write(b"16 16 Td\n")?;
+		writer.write(b"12 775 Td\n")?;
 		writer.write(b"(Hello!) Tj\n")?;
 		writer.write(b"ET\n")?;
 		writer.write(b"endstream\n")?;
