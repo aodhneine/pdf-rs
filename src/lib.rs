@@ -85,7 +85,7 @@ impl Document {
 		writer.write(b"<<\n")?;
 		writer.write(b"/Type /Page\n")?;
 		writer.write(b"/Parent 2 0 R\n")?;
-		writer.write(b"/MediaBox [0 0 612 792]\n")?;
+		writer.write(b"/MediaBox [0.0 0.0 612.0 792.0]\n")?;
 		writer.write(b"/Resources << >>\n")?;
 		writer.write(b">>\n")?;
 		writer.write(b"endobj\n")?;
