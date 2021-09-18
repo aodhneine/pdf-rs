@@ -121,13 +121,17 @@ impl Document {
 		writer.write(b"endstream\n")?;
 		writer.write(b"endobj\n")?;
 
+		// TODO: We want to use our own fonts instead of the built-in ones... That
+		// would probably require compressing them using DEFLATE, which is going to
+		// be a pain in Rust, since I don't want to pull in entire huge dependency
+		// just for that... I would rather implement it myself.
 		let font_pos = writer.pos();
 		writer.write(b"5 0 obj\n")?;
 		writer.write(b"<<\n")?;
 		writer.write(b"/Type /Font\n")?;
 		writer.write(b"/Subtype /Type1\n")?;
 		writer.write(b"/Name /F13\n")?;
-		writer.write(b"/BaseFont /Helvetica\n")?;
+		writer.write(b"/BaseFont /Times-Roman\n")?;
 		writer.write(b"/Encoding /MacRomanEncoding\n")?;
 		writer.write(b">>\n")?;
 		writer.write(b"endobj\n")?;
@@ -145,7 +149,7 @@ impl Document {
 		// Write the document trailer.
 		writer.write(b"trailer\n")?;
 		writer.write(b"<<\n")?;
-		writer.write(b"/Size 4\n")?;
+		writer.write(b"/Size 6\n")?;
 		writer.write(b"/Root 1 0 R\n")?;
 		writer.write(b">>\n")?;
 
