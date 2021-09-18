@@ -97,6 +97,15 @@ impl Document {
 		writer.write(b">>\n")?;
 		writer.write(b"endobj\n")?;
 
+		// Small overview of the text rendering facilities in PDF 1.7:
+		//   Each rendered text needs to be a stream object. The stream starts with
+		// command "BT", which stands for "Begin Text", and ends with command "ET",
+		// for "End Text". Between these you select font and size using "Tf" command,
+		// which accepts font name ("/F13") and size in points/units. Text position
+		// is provided using "Td" command, which accepts offset from the "0,0" point
+		// (lower left corner) in units. "Tj" command draws the text provided as a
+		// string using the currently set options (colour, size, font, position.)
+
 		let page1_contents_pos = writer.pos();
 		writer.write(b"4 0 obj\n")?;
 		writer.write(b"<<\n")?;
