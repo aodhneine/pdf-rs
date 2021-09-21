@@ -163,12 +163,14 @@ impl Document {
 
 #[cfg(test)]
 mod tests {
+	use crate::*;
+
 	#[test]
 	fn it_works() {
 		let mut file = std::fs::File::create("sample.pdf").expect("failed to create a file");
-		let mut writer = crate::Writer::new(&mut file);
+		let mut writer = Writer::new(&mut file);
 
-		let mut doc = crate::Document;
+		let mut doc = Document;
 		doc.write(&mut writer).expect("failed to write document to file");
 	}
 }
